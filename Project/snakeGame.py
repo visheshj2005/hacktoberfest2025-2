@@ -166,8 +166,8 @@ while True:
             # Reset score
             score = 0
             pen.clear()
-            pen.write("Score: {}  High Score: {}".format(score, high_score),
-                      align="center", font=("Courier", 24, "normal"))
+            pen.write(f"Score: {score}  High Score: {high_score}",
+                       align="center", font=("Courier", 24, "normal"))
 
     time.sleep(delay)
 
