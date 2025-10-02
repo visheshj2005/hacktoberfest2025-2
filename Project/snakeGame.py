@@ -84,6 +84,12 @@ wn.onkeypress(go_down, "s")
 wn.onkeypress(go_left, "a")
 wn.onkeypress(go_right, "d")
 
+# Optional: arrow keys
+wn.onkeypress(go_up, "Up")
+wn.onkeypress(go_down, "Down")
+wn.onkeypress(go_left, "Left")
+wn.onkeypress(go_right, "Right")
+
 # Main game loop
 while True:
     wn.update()
@@ -103,7 +109,8 @@ while True:
         score = 0
         pen.clear()
         pen.write("Score: {}  High Score: {}".format(score, high_score),
-                  align="center", font=("Courier", 24, "normal"))
+          align="center", font=("Courier", 24, "normal"))
+
 
 
     # Check collision with food
