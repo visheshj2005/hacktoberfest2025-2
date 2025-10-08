@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Blog</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header">
+    <h1>My Blogs</h1>
+    <div class="header-actions">
+      <input id="searchInput" type="search" placeholder="Search posts..." aria-label="Search posts">
+    </div>
+  </header>
+  <main class="container">
+    <section class="editor">
+      <h2 id="formTitle">Create New Post</h2>
+      <form id="blogForm">
+        <input type="hidden" id="postId">
+        <div class="field">
+          <label for="title">Title</label>
+          <input id="title" type="text" required maxlength="120" placeholder="Post title">
+        </div>
+        <div class="field">
+          <label for="author">Author</label>
+          <input id="author" type="text" required maxlength="60" placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="content">Content</label>
+          <textarea id="content" rows="8" required placeholder="Write your post..."></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn" id="saveBtn">Save Post</button>
+          <button type="button" class="btn btn-secondary" id="cancelEditBtn" hidden>Cancel Edit</button>
+          <button type="reset" class="btn btn-ghost">Clear</button>
+        </div>
+      </form>
+    </section>
+    <section class="list">
+      <div class="list-header">
+        <h2>Posts</h2>
+        <select id="sortSelect" aria-label="Sort posts">
+          <option value="newest">Newest</option>
+          <option value="oldest">Oldest</option>
+          <option value="title">Title A→Z</option>
+          <option value="author">Author A→Z</option>
+        </select>
+      </div>
+      <ul id="posts" class="posts"></ul>
+      <p id="emptyState" class="empty" hidden>No posts yet. Create your first post above.</p>
+    </section>
+  </main>
+  <template id="postItemTemplate">
+    <li class="post">
+      <div class="post-main">
+        <h3 class="post-title"></h3>
+        <p class="post-meta"></p>
+        <p class="post-content"></p>
+      </div>
+      <div class="post-actions">
+        <button class="btn btn-ghost edit">Edit</button>
+        <button class="btn btn-danger delete">Delete</button>
+      </div>
+    </li>
+  </template>
+  <script src="app.js"></script>
+</body>
+</html>
