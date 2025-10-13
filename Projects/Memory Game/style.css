@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4);
+  color: #fff;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#resetBtn {
+  background-color: #ff7f50;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#resetBtn:hover {
+  background-color: #ff9966;
+  transform: scale(1.05);
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 12px;
+  max-width: 360px;
+  justify-content: center;
+}
+
+.card {
+  aspect-ratio: 1 / 1;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: transparent;
+  cursor: pointer;
+  transform: rotateY(0deg);
+  transition: transform 0.4s, background 0.3s, color 0.3s;
+  user-select: none;
+}
+
+.card.flipped {
+  background-color: #fff;
+  color: #333;
+  transform: rotateY(180deg);
+}
+
+.card.matched {
+  background-color: #4caf50;
+  color: white;
+  cursor: default;
+}
+
+/* Celebration overlay */
+#celebration {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+#celebration.hidden {
+  display: none;
+}
+
+.message {
+  font-size: 2rem;
+  color: #ff4081;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Floating flowers animation */
+.flower {
+  position: absolute;
+  font-size: 1.8rem;
+  animation: fall 4s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .game-container {
+    max-width: 350px;
+    gap: 10px;
+  }
+  .card {
+    font-size: 1.7rem;
+  }
+  #resetBtn {
+    font-size: 1rem;
+    padding: 8px 18px;
+  }
+}
