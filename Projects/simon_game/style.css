@@ -1,0 +1,189 @@
+body {
+    background-color: #3c2717;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 1rem;
+}
+
+h1 {
+    margin: 0.1rem 0;
+    text-align: center;
+    font-family: fantasy;
+    color: #E4D4C8;
+    font-weight: lighter;
+    font-size: clamp(0.8rem, 5vw, 2.0rem);
+    text-shadow: 0.2rem  0.2rem #000000;
+}
+
+h2 {
+    text-align: center;
+    font-family: cursive;
+    color: #D0B49F;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    margin-bottom: 0.1rem;
+}
+
+.btn-container {
+    background-color: #1c0e09;
+    width: min(90vw, 90vh, 550px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: min(0.8vw, 8px) solid #1c0e09;
+    margin: 0.5rem auto;
+    position: relative;
+}
+.line-one, .line-two {
+    height: 50%;
+    width: 100%;
+    background-color: #1c0e09;
+    display: flex;
+    justify-content: space-between;
+}
+
+.green, .red, .yellow, .blue {
+    height: 100%;
+    width: 50%;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.green {
+    background-color: green;
+    border-radius: 0% 0% 50% 0%;
+    margin-right: 0.25rem;
+}
+
+.red {
+    background-color: red;
+    border-radius: 0% 0% 0% 50%;
+    margin-left: 0.25rem;
+}
+
+.yellow {
+    background-color: yellow;
+    border-radius: 0% 50% 0% 0%;
+    margin-right: 0.25rem;
+}
+
+.blue {
+    background-color: blue;
+    border-radius: 50% 0% 0% 0%;
+    margin-left: 0.25rem;
+}
+
+/* Hover effect for button click */
+.green:hover, .red:hover, .yellow:hover, .blue:hover {
+    box-shadow: 0 0 25px #000000;
+    transform: scale(1.02);
+}
+
+/* Flash Class */
+.flash {
+    background-color: #3c2717;
+}
+
+.userFlash {
+    background-color: #D0B49F;
+}
+
+.gameName {
+    background-color: #1c0e09;
+    height: 0.50rem;
+    text-align: center;
+    text-decoration: solid;
+    color: #D0B49F;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+#gameName {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    font-family: cursive;
+    position: relative;
+    top: -0.7rem;
+}
+
+.highest {
+    width: 100%;
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+#highest {
+    color: #D0B49F;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+}
+.mobile {
+    display: none;
+}
+.tribute {
+    position: absolute;
+    right: 2rem; /* Distance from right edge */
+    bottom: 1rem; /* Distance from bottom */
+    text-align: right;
+}
+
+#tribute {
+    color: #000000;
+    font-family: monospace;
+    font-size: 0.8rem;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Responsiveness work start from here */
+@media (max-width: 400px) {
+    /* Adding Start button */
+    body {
+    max-height: 70vh;
+    }
+    .mobile {
+        display: flex;
+        width: min(50vw, 70vh);
+        position: fixed;
+        margin-top: 35rem;
+        border: min(0.8vw, 8px) solid #1c0e09;
+    }
+    #mobile {
+        font-size: larger;
+        width: 50vw;
+        height: 2rem;
+        background-color: #D0B49F;
+        position: relative;
+    }
+    .btn-container {
+        width: min(90vw, 90vh);
+        position: fixed;
+        margin-top: 10rem;
+    }
+    
+    h1 {
+        margin-top: 0.1rem;
+        position: fixed;
+        margin-bottom: 1rem;
+    }
+    
+    h2 {
+        margin-top: 3rem;
+        margin-bottom: 0.1rem;
+        position: fixed;
+    }
+    .highest {
+        position: fixed;
+        margin-top: 38rem;
+    }
+    .tribute {
+        position: fixed;
+        margin-top: 40rem;
+    }
+    #tribute {
+        color: #000000;
+        font-family: monospace;
+        margin-left: 13rem;
+    }
+}
